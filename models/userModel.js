@@ -1,5 +1,6 @@
 import { DataTypes, Model } from "sequelize";
 import connection from "../connections/connection.js";
+import surveyModel from "./surveyModel.js";
 
 class UserModel extends Model{}
 
