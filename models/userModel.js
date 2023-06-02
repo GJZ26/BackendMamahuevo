@@ -5,6 +5,12 @@ import surveyModel from "./surveyModel.js";
 class UserModel extends Model{}
 
 UserModel.init({
+    id:{
+        type: DataTypes.BIGINT,
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false
+    },
     name: {
         type: DataTypes.STRING,
         allowNull: false

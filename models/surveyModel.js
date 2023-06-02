@@ -1,11 +1,16 @@
 import { DataTypes, Model } from "sequelize";
 import connection from "../connections/connection.js";
-import userModel from "./userModel.js";
 import UserModel from "./userModel.js";
 
 class surveyModel extends Model { }
 
 surveyModel.init({
+    id: {
+        type: DataTypes.BIGINT,
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false
+    },
     zone: {
         type: DataTypes.STRING,
         allowNull: false
@@ -25,6 +30,13 @@ surveyModel.init({
     aditionalInfo: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    userId: {
+        type: DataTypes.BIGINT,
+        references: {
+            model: UserModel,
+            key: "id"
+        }
     }
 }, {
     sequelize: connection,
